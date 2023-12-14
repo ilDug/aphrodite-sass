@@ -1,0 +1,14 @@
+@mixin containerized-grid($cols) {
+  $w: calc(100% / $cols);
+
+  display: grid;
+  grid-template-columns: repeat($cols, $w);
+}
+
+$columns: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
+
+@each $c in $columns {
+  .cntr .col-#{$c} {
+    @include containerized-grid($c);
+  }
+}

@@ -95,3 +95,13 @@ a:not([href]):not([class]) {
     cursor: pointer;
   }
 }
+
+::selection {
+  background: var(--c-main-300);
+}
+::-moz-selection {
+  background: var(--c-main-300); /* Firefox */
+}
+::-webkit-selection {
+  background: var(--c-main-300); /* Safari */
+}
