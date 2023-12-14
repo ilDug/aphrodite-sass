@@ -2,3 +2,10 @@
 *.css.map
 *.sass.map
 *.scss.map
+
+.npmrc
+
+node_modules/
+dist/
+
+

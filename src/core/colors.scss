@@ -1,0 +1,37 @@
+@use "sass:color";
+@use "sass:map";
+
+$theme: (
+  "main": rgb(255, 91, 96),
+  "vice": hsl(266, 40%, 60%),
+  "alter": hsl(209, 40%, 60%),
+  "accent": rgb(191, 215, 36),
+  "error": hsl(0, 50%, 60%),
+  "warn": hsl(50, 70%, 60%),
+  "goal": hsl(100, 40%, 60%),
+  "charm": hsl(230, 55%, 60%),
+  "gray": rgb(128, 128, 128),
+);
+
+$shades: (
+  100: 80%,
+  200: 60%,
+  300: 40%,
+  400: 20%,
+  500: 0%,
+  600: -20%,
+  700: -40%,
+  800: -60%,
+  900: -80%,
+);
+
+:root {
+  // genera le custom properties dei colori con prefisso "--c-colore-tinta"
+  @each $tint, $color in $theme {
+    --c-#{$tint}: #{$color};
+
+    @each $shade, $light in $shades {
+      --c-#{$tint}-#{$shade}: #{color.scale($color, $lightness: $light)};
+    }
+  }
+}

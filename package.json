@@ -1,0 +1,31 @@
+{
+  "name": "aphrodite-sass",
+  "version": "0.0.0",
+  "description": "web desin system ",
+  "main": "index.js",
+  "scripts": {
+    "sass:dev": "sass --watch --update --poll --style=expanded src:dist/styles",
+    "sass:prod": "sass --no-source-map --style=compressed src:dist/styles"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilDug/aphrodite-sass.git"
+  },
+  "keywords": [
+    "sass",
+    "css",
+    "scss",
+    "web-design"
+  ],
+  "author": "ilDug",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ilDug/aphrodite-sass/issues"
+  },
+  "homepage": "https://github.com/ilDug/aphrodite-sass#readme",
+  "devDependencies": {
+    "@fortawesome/fontawesome-pro": "^6.5.1",
+    "bootstrap": "^5.3.2",
+    "sass": "^1.69.5"
+  }
+}
