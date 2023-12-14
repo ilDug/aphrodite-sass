@@ -1,4 +1,8 @@
-@use "core/colors" as *;
+@use "core/colors";
+@use "core/typography";
+@use "core/breakpoints";
+
+@use "common/";
 
 // FONTAWESOME
 // @import "https://kit.fontawesome.com/0000000000000.css";

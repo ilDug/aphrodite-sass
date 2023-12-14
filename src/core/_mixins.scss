@@ -1,0 +1,57 @@
+@use "sass:map";
+@use "breakpoints" as *;
+
+@mixin media-up($val) {
+  $min: map.get($bp, $val);
+
+  @media (min-width: $min) {
+    @content;
+  }
+}
+
+@mixin media-down($val) {
+  $max: map.get($bp, $val);
+  $max: calc($max - 0.02);
+
+  @media (max-width: $max) {
+    @content;
+  }
+}
+
+@mixin ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// #######################################################
+// EXAMPLE:
+//     @include bg-cover("/assets/images/faqs.png") {
+//          tutto quello che c'e all'interno viene applicato all'elemento :: BEFORE
+//          filter: sepia(1) contrast(0.7);
+//     }
+@mixin bg-cover($url) {
+  // assegna relative per garantire ABSOLUTe nel ::before
+  position: relative;
+
+  & > * {
+    // posta in primo piano tuto quello che c'è all'interno
+    position: relative;
+    z-index: 1;
+  }
+
+  &::before {
+    content: "";
+    background-image: url(#{$url});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    @content;
+  }
+}
