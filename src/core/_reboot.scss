@@ -13,9 +13,11 @@
 // 3. Prevent adjustments of font size after orientation changes in iOS.
 // 4. Change the default tap highlight to be completely transparent in iOS.
 body {
-  margin: 0; // 1
+  margin: 0 !important; // 1
+  padding: 0 !important;
   font-family: var(--ff-body);
-  line-height: 1;
+  font-size: var(--f-size);
+  line-height: var(--line-height);
 
   color: var(--c-gray-700);
   background-color: var(--c-gray-100); // 2

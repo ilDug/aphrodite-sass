@@ -1,0 +1,59 @@
+$levels: (
+    1: 0.5em,
+    2: 0.75em,
+    3: 1em,
+    4: 1.5em,
+    5: 2em,
+    6: 3em,
+    auto: auto,
+);
+
+$sides: (
+    t: "top",
+    b: "bottom",
+    l: "left",
+    r: "right",
+);
+
+@each $lev, $val in $levels {
+    .p-#{$lev} {
+        padding: $val !important;
+    }
+    .m-#{$lev} {
+        margin: $val !important;
+    }
+    .g-#{$lev} {
+        gap: $val !important;
+    }
+
+
+    .px-#{$lev} {
+        padding-left: $val !important;
+        padding-right: $val !important;
+    }
+    .mx-#{$lev} {
+        margin-left: $val !important;
+        margin-right: $val !important;
+    }
+
+
+    .py-#{$lev} {
+        padding-top: $val !important;
+        padding-bottom: $val !important;
+    }
+    .my-#{$lev} {
+        margin-top: $val !important;
+        margin-bottom: $val !important;
+    }
+
+
+    @each $k, $s in $sides {
+        .p#{$k}-#{$lev} {
+            padding-#{$s}: $val !important;
+        }
+        .m#{$k}-#{$lev} {
+            margin-#{$s}: $val !important;
+        }
+    }
+}
+

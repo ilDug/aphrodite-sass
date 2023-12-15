@@ -1,5 +1,7 @@
 @use "mixins" as *;
 
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Josefin+Sans:wght@300;400;700&family=Montserrat:ital,wght@0,100;0,400;0,700;1,400&display=swap');
+
 /// VARIABLES
 :root {
   --ff-body: "Montserrat", sans-serif;
@@ -25,13 +27,9 @@
 
 // ################################################
 /// COMMON
-body {
-  font-size: var(--f-size);
-}
 
 %heading {
-  margin-top: 0;
-  margin-bottom: 1rem;
+  margin: 0;
   font-family: var(--ff-headings);
 }
 
