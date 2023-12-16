@@ -1,3 +1,6 @@
+@use "mixins" as *;
+@use "breakpoints" as b;
+
 @mixin containerized-grid($cols) {
     // $w: calc(100% / $cols);
     // width: 100%;
@@ -8,8 +11,34 @@
 $columns: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
 
 @each $c in $columns {
-    .cntr-#{$c} {
-        height: auto;
+    .grid-#{$c} {
+        // height: auto;
         @include containerized-grid($c);
+
+        .span-#{$c} {
+            grid-column: span $c;
+        }
+    }
+}
+
+@each $c in $columns {
+    @each $bp, $lim in b.$bp {
+        @include media-up($bp) {
+            .grid-#{$bp}-#{$c} {
+                @include containerized-grid($c);
+            }
+        }
+
+        @include media-down($bp) {
+            .grid-#{$bp}-#{$c} {
+                display: grid;
+            }
+        }
+
+        @include media-only($bp){
+            .span-#{$bp}-#{$c}{
+                grid-column: span $c;
+            }
+        }
     }
 }

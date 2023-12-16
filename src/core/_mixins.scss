@@ -1,27 +1,49 @@
 @use "sass:map";
+@use "sass:list";
 @use "breakpoints" as *;
 
 @mixin media-up($val) {
-  $min: map.get($bp, $val);
+    $min: map.get($bp, $val);
 
-  @media (min-width: $min) {
-    @content;
-  }
+    @media (min-width: $min) {
+        @content;
+    }
 }
 
 @mixin media-down($val) {
-  $max: map.get($bp, $val);
-  $max: calc($max - 0.02);
+    $max: map.get($bp, $val);
+    $max: calc($max - 0.02px);
 
-  @media (max-width: $max) {
-    @content;
-  }
+    @media (max-width: $max) {
+        @content;
+    }
+}
+
+@mixin media-only($val) {
+    $min: map.get($bp, $val);
+    $keys: map-keys($bp);
+    $i: list.index($keys, $val);
+
+    @if list.length($keys) > $i {
+        $i: $i + 1;
+        $next: list.nth($keys, $i);
+        $max: map.get($bp, $next);
+        $max: calc($max - 0.02px);
+
+        @media (min-width: $min) and (max-width: $max) {
+            @content;
+        }
+    } @else {
+        @media (min-width: $min) {
+            @content;
+        }
+    }
 }
 
 @mixin ellipsis {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 // #######################################################
@@ -31,27 +53,27 @@
 //          filter: sepia(1) contrast(0.7);
 //     }
 @mixin bg-cover($url) {
-  // assegna relative per garantire ABSOLUTe nel ::before
-  position: relative;
-
-  & > * {
-    // posta in primo piano tuto quello che c'è all'interno
+    // assegna relative per garantire ABSOLUTe nel ::before
     position: relative;
-    z-index: 1;
-  }
 
-  &::before {
-    content: "";
-    background-image: url(#{$url});
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 0;
-    @content;
-  }
+    & > * {
+        // posta in primo piano tuto quello che c'è all'interno
+        position: relative;
+        z-index: 1;
+    }
+
+    &::before {
+        content: "";
+        background-image: url(#{$url});
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+        @content;
+    }
 }
