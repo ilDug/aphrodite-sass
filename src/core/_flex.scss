@@ -1,0 +1,27 @@
+%flex{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.d-flex{
+    @extend %flex;
+}
+
+.d-flex-col {
+    @extend %flex;
+    flex-direction: column
+}
+
+.d-center{
+    @extend %flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+}

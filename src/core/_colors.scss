@@ -2,67 +2,99 @@
 @use "sass:map";
 
 $theme: (
-  "main": rgb(255, 91, 96),
-  "vice": hsl(266, 40%, 60%),
-  "alter": hsl(209, 40%, 60%),
-  "accent": rgb(191, 215, 36),
-  "error": hsl(0, 50%, 60%),
-  "warn": hsl(50, 70%, 60%),
-  "goal": hsl(100, 40%, 60%),
-  "charm": hsl(230, 55%, 60%),
-  "gray": rgb(128, 128, 128),
+    "main": rgb(255, 91, 96),
+    "vice": hsl(266, 40%, 60%),
+    "alter": hsl(209, 40%, 60%),
+    "accent": rgb(191, 215, 36),
+    "error": hsl(0, 50%, 60%),
+    "warn": hsl(50, 70%, 60%),
+    "goal": hsl(100, 40%, 60%),
+    "charm": hsl(230, 55%, 60%),
+    "gray": rgb(128, 128, 128),
 );
 
 $shades: (
-  100: 80%,
-  200: 60%,
-  300: 40%,
-  400: 20%,
-  500: 0%,
-  600: -20%,
-  700: -40%,
-  800: -60%,
-  900: -80%,
+    100: 80%,
+    200: 60%,
+    300: 40%,
+    400: 20%,
+    500: 0%,
+    600: -20%,
+    700: -40%,
+    800: -60%,
+    900: -80%,
 );
 
 :root {
-  // genera le custom properties dei colori con prefisso "--c-colore-tinta"
-  @each $tint, $color in $theme {
-    --c-#{$tint}: #{$color};
+    // genera le custom properties dei colori con prefisso "--c-colore-tinta"
+    @each $tint, $color in $theme {
+        --c-#{$tint}: #{$color};
 
-    @each $shade, $light in $shades {
-      --c-#{$tint}-#{$shade}: #{color.scale($color, $lightness: $light)};
+        @each $shade, $light in $shades {
+            --c-#{$tint}-#{$shade}: #{color.scale($color, $lightness: $light)};
+        }
     }
-  }
 }
 
 // FUNCTIONS
 
 /// Tint a color: mix a color with white
 @function tint-color($color, $weight) {
-  @return mix(white, $color, $weight);
+    @return mix(white, $color, $weight);
 }
 
 // Shade a color: mix a color with black
 @function shade-color($color, $weight) {
-  @return mix(black, $color, $weight);
+    @return mix(black, $color, $weight);
 }
 
 // Shade the color if the weight is positive, else tint it
 @function shift-color($color, $weight) {
-  @return if(
-    $weight > 0,
-    shade-color($color, $weight),
-    tint-color($color, -$weight)
-  );
+    @return if($weight > 0, shade-color($color, $weight), tint-color($color, -$weight));
 }
-
 
 // ###################################
 // TEXT
+@each $tint, $color in $theme {
+    .t-#{$tint} {
+        color: #{$color} !important;
+    }
+
+    @each $shade, $light in $shades {
+        .t-#{$tint}-#{$shade} {
+            color: #{color.scale($color, $lightness: $light)} !important;
+        }
+    }
+}
 
 // ###################################
 // BACKGROUND
+@each $tint, $color in $theme {
+    .bg-#{$tint} {
+        background-color: #{$color} !important;
+    }
+
+    @each $shade, $light in $shades {
+        .bg-#{$tint}-#{$shade} {
+            background-color: #{color.scale($color, $lightness: $light)} !important;
+        }
+    }
+}
 
 // ###################################
 // BORDERS
+@each $tint, $color in $theme {
+    .b-#{$tint} {
+        border-width: 1px;
+        border-style: solid;
+        border-color: #{$color} !important;
+    }
+
+    @each $shade, $light in $shades {
+        .b-#{$tint}-#{$shade} {
+            border-width: 1px;
+            border-style: solid;
+            border-color: #{color.scale($color, $lightness: $light)} !important;
+        }
+    }
+}
