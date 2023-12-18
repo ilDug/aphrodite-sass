@@ -1,0 +1,8 @@
+site_name: Aphodite SASS
+theme:
+  name: material
+  palette: 
+    scheme: default
+    primary: red
+    accent: indigo
+  
