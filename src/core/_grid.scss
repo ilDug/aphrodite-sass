@@ -2,8 +2,6 @@
 @use "breakpoints" as b;
 
 @mixin containerized-grid($cols) {
-    // $w: calc(100% / $cols);
-    // width: 100%;
     display: grid;
     grid-template-columns: repeat($cols, 1fr);
 }
@@ -12,11 +10,16 @@ $columns: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
 
 @each $c in $columns {
     .grid-#{$c} {
-        // height: auto;
         @include containerized-grid($c);
 
         .span-#{$c} {
             grid-column: span $c;
+        }
+    }
+
+    @include media-down(sm) {
+        .grid-#{$c} {
+            display: grid;
         }
     }
 }
@@ -35,8 +38,8 @@ $columns: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
             }
         }
 
-        @include media-only($bp){
-            .span-#{$bp}-#{$c}{
+        @include media-only($bp) {
+            .span-#{$bp}-#{$c} {
                 grid-column: span $c;
             }
         }
