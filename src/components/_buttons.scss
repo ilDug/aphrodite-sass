@@ -1,0 +1,50 @@
+@use "../core/colors" as c;
+
+//BUTTONS
+$btn-p: 0.25px 1rem;
+$btn-b-w: 1px 1px 1px 1px;
+$btn-b-r: 0px;
+
+$btn-c-contrast: 0;
+$btn-bg-contrast: 400;
+$btn-b-contrast: $btn-bg-contrast + 100;
+
+$btn-c-contrast-ho: $btn-c-contrast + 0;
+$btn-bg-contrast-ho: $btn-bg-contrast + 100;
+$btn-b-contrast-ho: $btn-bg-contrast-ho + 100;
+
+.btn {
+    display: inline-block;
+    padding: $btn-p;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    text-decoration: none;
+
+    border-style: solid;
+    border-width: $btn-b-w;
+    border-radius: $btn-b-r;
+
+    transition: color 0.5s ease, background 0.5s ease, border-color 0.5s ease;
+}
+
+@each $tint, $color in c.$theme {
+    .btn-#{$tint} {
+        @if $btn-c-contrast == 0 {
+            color: white;
+        } @else {
+            color: var(--c-#{$tint}-#{$btn-c-contrast});
+        }
+        background: var(--c-#{$tint}-#{$btn-bg-contrast});
+        border-color: var(--c-#{$tint}-#{$btn-b-contrast});
+        &:hover {
+            @if $btn-c-contrast == 0 {
+                color: white;
+            } @else {
+                color: var(--c-#{$tint}-#{$btn-c-contrast-ho});
+            }
+            background: var(--c-#{$tint}-#{$btn-bg-contrast-ho});
+            border-color: var(--c-#{$tint}-#{$btn-b-contrast-ho});
+        }
+    }
+}

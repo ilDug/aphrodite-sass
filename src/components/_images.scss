@@ -1,12 +1,7 @@
 @use "../core/mixins" as *;
 
-// puntini di sospensione su tensto lungo;
-.truncated {
-  @include ellipsis;
-}
-
 // immagini responsive
-.img-fluid {
+.img-x {
   max-width: 100%;
   height: auto;
 }
