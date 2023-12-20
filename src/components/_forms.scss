@@ -1,0 +1,45 @@
+.form-group,
+input,
+select {
+    --control-bg: white;
+    --control-c: inherit;
+    --control-b-r: 3px;
+    --control-b-c: none;
+    --control-b-c-focus: var(--c-main-300);
+    --control-b-w: none;
+    --control-line-height: 2.5rem;
+
+    background-color: var(--control-bg);
+    border-radius: var(--control-b-r);
+
+    > *:not(input) {
+        padding: 0.5rem 0.5rem;
+    }
+}
+
+select,
+input {
+    // appearance: none;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    color: var(--control-c);
+    height: var(--control-line-height);
+    padding: 0.25rem 1rem 0.25rem 1rem;
+    border-width: 0;
+    border-color: var(--control-b-c);
+    border-style: solid;
+
+    &:focus {
+        border-color: var(--control-b-c-focus);
+        border-width: 1px;
+        // outline: 0;
+        outline-color: var(--control-b-c-focus);
+    }
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+}
