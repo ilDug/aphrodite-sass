@@ -1,9 +1,9 @@
 @use "../core/colors" as c;
 
 //BUTTONS
-$btn-p: 0.25px 1rem;
+$btn-p: 0.25rem 1rem;
 $btn-b-w: 1px 1px 1px 1px;
-$btn-b-r: 0px;
+$btn-b-r: 3px;
 
 $btn-c-contrast: 0;
 $btn-bg-contrast: 400;
@@ -14,8 +14,11 @@ $btn-bg-contrast-ho: $btn-bg-contrast + 100;
 $btn-b-contrast-ho: $btn-bg-contrast-ho + 100;
 
 .btn {
-    display: inline-block;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     padding: $btn-p;
+    line-height: var(--line-height);
     text-align: center;
     vertical-align: middle;
     user-select: none;

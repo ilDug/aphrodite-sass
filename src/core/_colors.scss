@@ -1,6 +1,14 @@
 @use "sass:color";
 @use "sass:map";
 
+:root{
+    // colore di sfondo
+    --c-bg: var(--c-gray-200); 
+
+    // colore del testo
+    --c-body: var(--c-gray-700);
+}
+
 $theme: (
     "main": rgb(255, 91, 96),
     "vice": hsl(266, 40%, 60%),

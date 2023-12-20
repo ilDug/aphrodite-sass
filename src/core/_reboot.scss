@@ -19,8 +19,8 @@ body {
   font-size: var(--f-size);
   line-height: var(--line-height);
 
-  color: var(--c-gray-700);
-  background-color: var(--c-gray-100); // 2
+  color: var(--c-body);
+  background-color: var(--c-bg); // 2
 
   -webkit-text-size-adjust: 100%; // 3
   -webkit-tap-highlight-color: rgba(black, 0); // 4
@@ -60,7 +60,7 @@ sub,
 sup {
   position: relative;
   line-height: 0;
-  font-size: calc(var(-f-size) * 0.75);
+  font-size: calc(var(--f-size) * 0.75);
   vertical-align: baseline;
 }
 
