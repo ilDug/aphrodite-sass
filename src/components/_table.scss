@@ -1,0 +1,13 @@
+table {
+    $table-border-color: var(--c-gray-300);
+    
+    width: 100%;
+    vertical-align: middle;
+    border-color: $table-border-color;
+
+    &.border{
+        tr{
+            border-width: 1px 0 ;
+        }
+    }
+}
