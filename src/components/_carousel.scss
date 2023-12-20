@@ -1,0 +1,50 @@
+@use "../core/colors" as colors;
+
+$carousel-padding: 0.5rem;
+
+.carousel {
+    display: grid;
+    grid-template-areas: "overlap";
+    place-items: center;
+    width: 100%;
+    padding: $carousel-padding;
+    background: rgb(237 231 231);
+    overflow: hidden;
+    position: relative;
+
+    .slide {
+        grid-area: overlap;
+        img {
+            width: 100%;
+            height: auto;
+        }
+        transform: translateX(calc(100% + $carousel-padding));
+        opacity: 0;
+    }
+
+    .slide.active {
+        transform: translateX(0);
+        opacity: 1;
+        transition: transform 0.75s ease, opacity 2s ease;
+    }
+
+    .commands {
+        z-index: 99;
+        grid-area: overlap;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+
+    .prev-slide,
+    .next-slide {
+        color: var(--c-main-200);
+        transition: all 0.5s ease;
+    }
+
+    &:hover .prev-slide,
+    &:hover .next-slide {
+        color: var(--c-main-300);
+    }
+}

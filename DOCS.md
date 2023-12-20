@@ -10,6 +10,7 @@ docker run --rm -it -v ${PWD}/docs:/docs squidfunk/mkdocs-material new .
 
 ```bash
 docker run --rm -it -p 8000:8000 -v ${PWD}/docs:/docs squidfunk/mkdocs-material
+docker run --rm -d -p 8000:8000 -v ${PWD}/docs:/docs squidfunk/mkdocs-material
 ```
 
 # Build 

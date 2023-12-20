@@ -5,6 +5,8 @@ theme:
     scheme: default
     primary: red
     accent: indigo
+  features:
+    - content.code.copy
   
 markdown_extensions:
   - pymdownx.highlight:
@@ -14,3 +16,4 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+
