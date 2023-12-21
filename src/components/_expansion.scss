@@ -1,0 +1,45 @@
+
+// EXPANSION BOX
+.exp-box{
+    --caret: "\f107";
+
+    display: grid;
+    grid-template-rows: min-content 0fr;
+    position: relative;
+    transition: grid-template-rows 0.5s ease-out;
+
+    //HEADER
+    .exp-header{
+        cursor: pointer;
+        font-weight: bolder;
+        padding: 0.5em;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &::after {
+            font: var(--fa-font-solid);
+            content: var(--caret);
+            display: inline-block;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+        }
+    }
+
+    //EXPANSION BODY
+    .exp-body{
+        overflow: hidden;
+        padding: 0 0.5em;
+        // margin-top: 0.5em;
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+}
+
+.exp-box[data-show] {
+    --caret: "\f104";
+    grid-template-rows: min-content 1fr;
+}
