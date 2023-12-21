@@ -7,6 +7,11 @@
 
     // colore del testo
     --c-body: var(--c-gray-700);
+
+    // DECORATIONS
+    --title-line-color: var(--c-main-300);
+    --underlined-color: var(--c-alter-300)
+
 }
 
 $theme: (

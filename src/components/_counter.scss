@@ -1,6 +1,4 @@
-:root {
-    --counter-height: 50px;
-}
+$counter-height: 50px;
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
@@ -12,10 +10,10 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .counter {
     position: relative;
-    width: calc(var(--counter-height) * 1.6);
-    height: var(--counter-height);
+    width: calc($counter-height * 1.6);
+    height: $counter-height;
     overflow: hidden;
-    background-color: c.$gray-200;
+    background-color: var(--c-gray-200);
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -37,10 +35,10 @@ input[type="number"]::-webkit-outer-spin-button {
         .minus {
             height: 50%;
             border: 0;
-            width: calc(var(--counter-height) / 2);
+            width: calc($counter-height / 2);
             padding: 0;
-            color: c.$gray-600;
-            background-color: c.$gray-300;
+            color: var(--c-gray-600);
+            background-color:var(--c-gray-300);
         }
     }
 }

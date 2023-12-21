@@ -47,32 +47,26 @@ Eseguire la seguente funzione passando come argomento la stringa corrisopndente 
 
 ```typescript
 export function applyCarousel(carouselId: string) {
-
     const carousel = document.getElementById(carouselId)!;
-    const next = carousel.querySelector('.commands .next-slide')! as HTMLAnchorElement;
-    const previous = carousel.querySelector('.commands .prev-slide')! as HTMLAnchorElement;
-    const slides = [...carousel.querySelectorAll(".slide")]
+    const next = carousel.querySelector(".commands .next-slide")! as HTMLAnchorElement;
+    const previous = carousel.querySelector(".commands .prev-slide")! as HTMLAnchorElement;
+    const slides = [...carousel.querySelectorAll(".slide")];
     let active: number = 0;
 
-    next.addEventListener('click', (ev: MouseEvent) => {
-        ev.preventDefault()
-        ev.stopPropagation()
-        active = active == (slides.length - 1) ? 0 : active + 1;
-        slides.forEach((slide, i) => {
-            slide.classList[i == active ? 'add' : 'remove']('active')
-        })
-    })
+    const classCtrl = (slide, i) => slide.classList[i == active ? "add" : "remove"]("active");
 
-    previous.addEventListener('click', (ev: MouseEvent) => {
-        ev.preventDefault()
-        ev.stopPropagation()
-        active = active == 0 ? (slides.length - 1) : active - 1;
-        console.log(active);
+    next.addEventListener("click", (ev: MouseEvent) => {
+        ev.preventDefault();
+        ev.stopPropagation();
+        active = active == slides.length - 1 ? 0 : active + 1;
+        slides.forEach(classCtrl);
+    });
 
-        slides.forEach((slide, i) => {
-            slide.classList[i == active ? 'add' : 'remove']('active')
-        })
-    })
+    previous.addEventListener("click", (ev: MouseEvent) => {
+        ev.preventDefault();
+        ev.stopPropagation();
+        active = active == 0 ? slides.length - 1 : active - 1;
+        slides.forEach(classCtrl);
+    });
 }
-
 ```
