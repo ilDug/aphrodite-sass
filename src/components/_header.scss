@@ -1,0 +1,197 @@
+@use "../core/mixins" as *;
+
+$header-bg: var(--c-gray--200);
+$header-h: 4rem;
+
+$header-banner-h: 2rem;
+$header-banner-bg: var(--c-main-200);
+$header-banner-c: white;
+$nav-fs: 0.8rem;
+
+header {
+    display: block;
+
+    #header-banner {
+        height: $header-banner-h;
+        background: $header-banner-bg;
+        width: 100%;
+        color: $header-banner-c;
+        padding: 0 2rem;
+        font-size: 0.7rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include media-up(md) {
+            justify-content: space-between;
+        }
+    }
+
+    #header-toolbar {
+        @include media-up(md) {
+            height: $header-h * 1.25;
+        }
+
+        display: flex;
+        align-items: center;
+        position: relative;
+        background-color: $header-bg;
+        height: $header-h;
+
+        /** LOGO ******************************************************************/
+        #header-logo {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+
+            img {
+                display: flex;
+                height: $header-h * 0.3;
+            }
+
+            @include media-up(sm) {
+                img {
+                    height: $header-h * 0.5;
+                }
+            }
+        }
+
+        /** NAVIGATION ***************************************************************/
+        // MOBILE SIZE #######
+        #nav {
+            font-size: $nav-fs;
+
+            
+            display: block;
+            position: fixed;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            background: white;
+            transition: bottom 0.5s ease;
+            z-index: 99;
+            ///////////////////////////////
+
+            // OVERLAY
+            & + #nav-overlay {
+                display: none;
+                opacity: 0.15;
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: --c-main-100;
+                z-index: 9;
+                pointer-events: none;
+            }
+            ///////////////////////////////
+
+            // OPENED
+            &[data-show] {
+                bottom: 0;
+            }
+
+            &[data-show] + #nav-overlay {
+                display: block;
+            }
+            ////////////////////////////////
+
+            // CLOSE BUTTON
+            #menu-close {
+                @include buttonClose;
+                display: block;
+                position: absolute;
+                right: 1rem;
+                top: 1rem;
+            }
+            ////////////////////////////////
+
+            //MENU
+            & > ul {
+                display: flex;
+                justify-content: flex-start;
+                flex-direction: column;
+
+                margin: 1rem;
+                margin-top: 3rem;
+                padding: 0;
+
+                li {
+                    list-style: none;
+                    text-indent: 0;
+                    padding: 1rem 0.5rem;
+                    &:hover {
+                        background: --c-gray-100;
+                    }
+                }
+            }
+            ////////////////////////////////
+        }
+        // desktop SIZE #######
+        #nav {
+            @include media-up(md) {
+                #menu-close {
+                    display: none;
+                }
+
+                flex: 1 0 auto;
+                padding: 1rem;
+                & > ul {
+                    display: flex;
+                    justify-content: flex-end;
+                    margin: 0;
+                    padding: 0;
+                    li {
+                        padding: 0 0.75rem;
+                    }
+                }
+                & + #nav-overlay {
+                    display: none;
+                }
+            }
+        }
+        ////////////////////////////////
+
+
+    }
+}
+
+
+//     /** ACTIONS ***********************************************************************************************************/
+//     #header-actions {
+//         height: 100%;
+//         margin: 0 0 0 1rem;
+//         display: flex;
+//         flex-wrap: nowrap;
+//         background-color: c.$gray-200;
+
+//         .header-action-btn {
+//             height: 100%;
+//             margin: 0;
+//             display: flex;
+//             justify-content: center;
+//             align-items: center;
+//             font-size: 1rem;
+//             padding: 0 1rem;
+//             cursor: pointer;
+
+//             @include media-up(md) {
+//                 font-size: 1.5rem;
+//                 padding: 0 1.5rem;
+//             }
+//         }
+
+//         #header-cart-btn {
+//             background: c.$gray-900;
+//             color: c.$white;
+//         }
+
+//         #header-menu-btn {
+//             display: inherit;
+
+//             @include media-up(md) {
+//                 display: none;
+//             }
+//         }
+//     }

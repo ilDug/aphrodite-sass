@@ -1,4 +1,5 @@
 @use "breakpoints" as bp;
+@use "mixins" as *;
 
 .w-100 {
     width: 100% !important;
@@ -41,7 +42,12 @@
     display: none !important;
 }
 
+
+// NASCONDE AL SI SOTTO DEL BREAKPOINT (COMPRESO)
 @each $breakpoint, $width in bp.$bp{
-    // TO DO 
-    // da fare come per grid
+    @include media-down($breakpoint) {
+        .d-none-#{$breakpoint} {
+            display: none !important;
+        }
+    }
 }
