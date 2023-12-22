@@ -1,0 +1,58 @@
+@use "../core//mixins" as mx;
+
+#offcanvas {
+    --offc-width: 20rem;
+    --offc-bg: var(--c-gray-700);
+    --offc-c: var(--c-gray-100);
+    --offc-p: 1rem;
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 999;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    // min-height: 100vh;
+    width: var(--offc-width);
+    max-width: 100%;
+
+    color: var(--offc-c);
+    background: var(--offc-bg);
+
+    display: flex;
+    flex-direction: column;
+
+    visibility: hidden;
+    transition: transform 500ms ease, visibility 500ms ease;
+
+    &.offcanvas-left {
+        left: 0;
+        transform: translateX(-100%);
+    }
+
+    &.offcanvas-right {
+        right: 0;
+        transform: translateX(+100%);
+    }
+
+    &[data-show] {
+        visibility: visible;
+        transform: none;
+    }
+
+    & .offcanvas-header {
+        padding: var(--offc-p);
+        display: flex;
+        justify-content: space-between;
+    }
+
+    & .offcanvas-body {
+        padding: var(--offc-p);
+        flex-grow: 1;
+    }
+
+    & .btn-offcanvas-close {
+        @include mx.buttonClose;
+    }
+}

@@ -77,3 +77,32 @@
         @content;
     }
 }
+
+@mixin buttonClose {
+    --btn-close-size: 1rem;
+
+    position: relative;
+    cursor: pointer;
+    width: var(--btn-close-size);
+
+    &::after,
+    &::before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        background-color: var(--offc-c);
+        width: 2px;
+        height: var(--btn-close-size);
+        border-radius: 2px;
+        transform-origin: center center;
+        top: 0;
+        left: 50%;
+    }
+    &::after {
+        transform: rotate(45deg);
+    }
+
+    &::before {
+        transform: rotate(-45deg);
+    }
+}

@@ -7,16 +7,61 @@
         <title>Document</title>
     </head>
     <body>
+        <div class="offcanvas-right" id="offcanvas" >
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasCartLabel">
+                    <i class="fa-duotone fa-cart-shopping text-primary"></i> Carrello
+                </h5>
+                <a class="btn-offcanvas-close"></a>
+            </div>
+
+            <div class="offcanvas-body">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat reprehenderit
+                    officia aliquam? Odio provident rerum numquam, eius perferendis vel cumque.
+                    Voluptatibus deserunt culpa nihil architecto laudantium cupiditate nisi, dolorum
+                    aliquam. Omnis rerum dolor illum, totam nesciunt minus modi sunt accusamus quasi
+                    harum. Unde recusandae amet earum assumenda, id, iure, veritatis error iusto sit
+                    dolorum fugiat nam in ex sint dicta. Cupiditate nihil quod expedita earum id,
+                    eius numquam fugit iusto quidem iste laudantium facere beatae doloremque?
+                    Laudantium ducimu.
+                </p>
+            </div>
+        </div>
+
+
+
         <div class="p-3">
             <h1>EURO-KEMICAL</h1>
             <p>
-                Lorem ipsum dolor sit amet,adipisicing elit. Magnam, dignissimos illo!
-                Porro  <span class="tooltip t-vice" data-tooltip="Tultipaccio, tutto accio asd asd rerwsdcgedr hd">c</span>  dolorum quidem omnis. Nihil minima eum laudantium optio similique, odio,
-                mollitia quos veniam tempora nostrum reprehenderit vitae molestiae?
+                Lorem ipsum dolor sit amet,adipisicing elit. Magnam, dignissimos illo! Porro
+                <span
+                    class="tooltip t-vice"
+                    data-tooltip="Tultipaccio, tutto accio asd asd rerwsdcgedr hd"
+                    >c</span
+                >
+                dolorum quidem omnis.  <a href="#" class="btn btn-main btn-offcanvas-open">click</a> Nihil minima eum laudantium optio similique, odio, mollitia
+                quos veniam tempora nostrum reprehenderit vitae molestiae?
             </p>
             <p>
                 <a href="#" class="btn btn-main">click</a>
             </p>
+
+
+            <script>
+                const oc = document.getElementById("offcanvas");
+                const x = oc.querySelector(".btn-offcanvas-close");
+                const y = document.querySelector(".btn-offcanvas-open");
+    
+                const action = (ev) => {
+                    ev.preventDefault();
+                    ev.stopPropagation();
+                    oc.toggleAttribute("data-show");
+                };
+                x.addEventListener("click", action);
+                y.addEventListener("click", action);
+            </script>
+
 
             <div class="grid-sm-2 g-3 mb-3">
                 <div>
@@ -84,7 +129,9 @@
         </div>
         <div>
             <div class="exp-box">
-                <div class="exp-header">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+                <div class="exp-header">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </div>
                 <div class="exp-body">
                     <p>
                         Ex sint enim asperiores corporis, ipsum voluptatem quis dolores, facere
