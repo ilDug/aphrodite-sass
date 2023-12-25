@@ -153,7 +153,6 @@ header {
         display: flex;
         flex-wrap: nowrap;
         margin-left:auto;
-        // background-color: c.$gray-200;
 
         .bar-btn {
             height: 100%;
@@ -169,19 +168,6 @@ header {
                 font-size: 1.5rem;
                 padding: 0 1.5rem;
             }
-        }
-
-        #header-cart-btn {
-            // background: c.$gray-900;
-            // color: c.$white;
-        }
-
-        #header-menu-btn {
-            // display: inherit;
-
-            // @include media-up(md) {
-            //     display: none;
-            // }
         }
     }
 }

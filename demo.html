@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-pro/css/all.min.css" />
         <link rel="stylesheet" href="dist/styles/styles.css" />
         <title>Document</title>
     </head>
@@ -58,14 +59,14 @@
 
                 <div id="bar-actions">
                     <a id="header-menu-btn" class="bar-btn bg-gray-100 t-gray-600">
-                        <i class="fal fa-bars"></i>1
+                        <i class="fal fa-bars"></i>
                     </a>
 
                     <a
                         id="header-cart-btn"
                         class="bar-btn btn-offcanvas-open bg-gray-800 t-white d-none-md"
                     >
-                        <i class="fa-sharp fa-light fa-cart-shopping text-white"></i>2
+                        <i class="fa-sharp fa-light fa-cart-shopping text-white"></i>
                     </a>
                 </div>
             </div>
@@ -111,7 +112,26 @@
                 <a href="#" class="btn btn-main">click</a>
             </p>
 
-            <script>
+            <p>
+                <span style="position: relative">
+                    <a id="usage-anchor">Set with idref</a>
+                    <md-menu id="usage-menu" anchor="usage-anchor">
+                        <md-menu-item>
+                            <div slot="headline">Apple</div>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <div slot="headline">Banana</div>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <div slot="headline">Cucumber</div>
+                        </md-menu-item>
+                    </md-menu>
+                </span>
+            </p>
+
+            <script src="./node_modules/@material/web/menu/menu.js"></script>
+
+            <script type="module">
                 const oc = document.getElementById("offcanvas");
                 const x = oc.querySelector(".btn-offcanvas-close");
                 const y = document.querySelector(".btn-offcanvas-open");
@@ -123,6 +143,15 @@
                 };
                 x.addEventListener("click", action);
                 y.addEventListener("click", action);
+
+
+                // This example uses anchor as an ID reference
+                const anchorEl = document.body.querySelector("#usage-anchor");
+                const menuEl = document.body.querySelector("#usage-menu");
+
+                anchorEl.addEventListener("click", () => {
+                    menuEl.open = !menuEl.open;
+                });
             </script>
 
             <div class="grid-sm-2 g-3 mb-3">
@@ -138,7 +167,7 @@
                 <div>
                     <div class="form-group">
                         <input type="text" />
-                        <i class="fa-light fa-check t-goal">gg</i>
+                        <i class="fa-light fa-check t-goal"></i>
                     </div>
                 </div>
             </div>
