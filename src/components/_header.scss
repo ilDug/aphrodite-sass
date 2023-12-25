@@ -1,12 +1,13 @@
 @use "../core/mixins" as *;
 
-$header-bg: var(--c-gray--200);
+$header-bg: var(--c-gray-300);
 $header-h: 4rem;
 
 $header-banner-h: 2rem;
 $header-banner-bg: var(--c-main-200);
 $header-banner-c: white;
 $nav-fs: 0.8rem;
+$nav-bg-sm: white;
 
 header {
     display: block;
@@ -27,7 +28,7 @@ header {
         }
     }
 
-    #header-toolbar {
+    #bar {
         @include media-up(md) {
             height: $header-h * 1.25;
         }
@@ -37,54 +38,59 @@ header {
         position: relative;
         background-color: $header-bg;
         height: $header-h;
+    }
 
-        /** LOGO ******************************************************************/
-        #header-logo {
+    /** LOGO ******************************************************************/
+    #bar #header-logo,
+    #bar #header-logo a {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        font-size: 0.8em;
+
+        img {
             display: flex;
-            align-items: center;
-            padding: 0.75rem;
-
-            img {
-                display: flex;
-                height: $header-h * 0.3;
-            }
-
-            @include media-up(sm) {
-                img {
-                    height: $header-h * 0.5;
-                }
-            }
+            height: $header-h * 0.3;
         }
 
-        /** NAVIGATION ***************************************************************/
-        // MOBILE SIZE #######
-        #nav {
-            font-size: $nav-fs;
+        @include media-up(sm) {
+            font-size: 1em;
+            img {
+                height: $header-h * 0.5;
+            }
+        }
+    }
 
-            
+    /** NAVIGATION ***************************************************************/
+    // OVERLAY
+    #bar nav + #nav-overlay {
+        display: none;
+        opacity: 0.15;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--c-main-200);
+        z-index: 9;
+        pointer-events: none;
+    }
+    ///////////////////////////////
+
+
+    #bar nav {
+        font-size: $nav-fs;
+        
+        // MOBILE SIZE #######
+        @include media-down(md) {
             display: block;
             position: fixed;
             bottom: -100%;
             left: 0;
             width: 100%;
-            background: white;
+            background: $nav-bg-sm;
             transition: bottom 0.5s ease;
             z-index: 99;
-            ///////////////////////////////
-
-            // OVERLAY
-            & + #nav-overlay {
-                display: none;
-                opacity: 0.15;
-                position: fixed;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                background: --c-main-100;
-                z-index: 9;
-                pointer-events: none;
-            }
             ///////////////////////////////
 
             // OPENED
@@ -95,103 +101,87 @@ header {
             &[data-show] + #nav-overlay {
                 display: block;
             }
-            ////////////////////////////////
-
-            // CLOSE BUTTON
-            #menu-close {
-                @include buttonClose;
-                display: block;
-                position: absolute;
-                right: 1rem;
-                top: 1rem;
-            }
-            ////////////////////////////////
-
-            //MENU
-            & > ul {
-                display: flex;
-                justify-content: flex-start;
-                flex-direction: column;
-
-                margin: 1rem;
-                margin-top: 3rem;
-                padding: 0;
-
-                li {
-                    list-style: none;
-                    text-indent: 0;
-                    padding: 1rem 0.5rem;
-                    &:hover {
-                        background: --c-gray-100;
-                    }
-                }
-            }
-            ////////////////////////////////
         }
+
         // desktop SIZE #######
-        #nav {
-            @include media-up(md) {
-                #menu-close {
-                    display: none;
-                }
+        @include media-up(md) {
+            flex: 1 0 auto;
+            padding: 1rem;
 
-                flex: 1 0 auto;
-                padding: 1rem;
-                & > ul {
-                    display: flex;
-                    justify-content: flex-end;
-                    margin: 0;
-                    padding: 0;
-                    li {
-                        padding: 0 0.75rem;
-                    }
-                }
-                & + #nav-overlay {
-                    display: none;
-                }
+            & + #nav-overlay {
+                display: none;
             }
         }
-        ////////////////////////////////
+    }
+
+    //MENU
+    #bar nav > ul {
+        padding: 2rem 0;
+        display: grid;
+        gap: 1rem;
+
+        @include media-up(md) {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+    }
+    ////////////////////////////////
 
 
+
+    // CLOSE BUTTON
+    #bar nav #menu-close {
+        @include buttonClose;
+        --btn-close-c: var(--c-gray-600);
+        display: block;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+
+        @include media-up(md) {
+            display: none;
+        }
+    }
+    ////////////////////////////////
+
+
+    /** ACTIONS ************************************************/
+    #bar #bar-actions {
+        height: 100%;
+        margin: 0 0 0 1rem;
+        display: flex;
+        flex-wrap: nowrap;
+        margin-left:auto;
+        // background-color: c.$gray-200;
+
+        .bar-btn {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1rem;
+            padding: 0 1rem;
+            cursor: pointer;
+
+            @include media-up(md) {
+                font-size: 1.5rem;
+                padding: 0 1.5rem;
+            }
+        }
+
+        #header-cart-btn {
+            // background: c.$gray-900;
+            // color: c.$white;
+        }
+
+        #header-menu-btn {
+            // display: inherit;
+
+            // @include media-up(md) {
+            //     display: none;
+            // }
+        }
     }
 }
-
-
-//     /** ACTIONS ***********************************************************************************************************/
-//     #header-actions {
-//         height: 100%;
-//         margin: 0 0 0 1rem;
-//         display: flex;
-//         flex-wrap: nowrap;
-//         background-color: c.$gray-200;
-
-//         .header-action-btn {
-//             height: 100%;
-//             margin: 0;
-//             display: flex;
-//             justify-content: center;
-//             align-items: center;
-//             font-size: 1rem;
-//             padding: 0 1rem;
-//             cursor: pointer;
-
-//             @include media-up(md) {
-//                 font-size: 1.5rem;
-//                 padding: 0 1.5rem;
-//             }
-//         }
-
-//         #header-cart-btn {
-//             background: c.$gray-900;
-//             color: c.$white;
-//         }
-
-//         #header-menu-btn {
-//             display: inherit;
-
-//             @include media-up(md) {
-//                 display: none;
-//             }
-//         }
-//     }

@@ -80,7 +80,7 @@
 
 @mixin buttonClose {
     --btn-close-size: 1rem;
-
+    --btn-close-c: white;
     position: relative;
     cursor: pointer;
     width: var(--btn-close-size);
@@ -90,7 +90,7 @@
         content: "";
         display: inline-block;
         position: absolute;
-        background-color: var(--offc-c);
+        background-color: var(--btn-close-c);
         width: 2px;
         height: var(--btn-close-size);
         border-radius: 2px;

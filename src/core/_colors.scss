@@ -80,6 +80,10 @@ $shades: (
     }
 }
 
+.t-white{
+    color:white !important;
+}
+
 // ###################################
 // BACKGROUND
 @each $tint, $color in $theme {

@@ -7,8 +7,6 @@
         <title>Document</title>
     </head>
     <body>
-
-
         <header>
             <div id="header-banner">
                 <span class="d-none-md">frase o motto interessante.</span>
@@ -18,19 +16,18 @@
                     <a href="#" target="_blank"><i class="fa-regular mx-3 fa-cup-togo"></i></a>
                 </div>
             </div>
-               
-            <div id="header-toolbar">   
-        
+
+            <div id="bar">
                 <div id="header-logo">
-                    <div id="logo-bg">
-                        <a href="/"><img src="..." alt="..." class="img-fluid">Logo</a>
-                    </div>
+                    <a href="/">
+                        <img src="https://picsum.photos/100" alt="..." class="img-fluid ml-3" />
+                        <h3 class="ml-1">Logo</h3>
+                    </a>
                 </div>
 
-                <nav class="" id="nav">
+                <nav id="nav" data-show>
                     <span id="menu-close"></span>
                     <ul>
-        
                         <a href="/catalog">
                             <li class="" id="nav-catalog">
                                 <i class="fa-duotone fa-rectangle-vertical-history icon mr-2"></i>
@@ -55,27 +52,26 @@
                                 Account
                             </li>
                         </a>
-        
                     </ul>
                 </nav>
                 <div id="nav-overlay"></div>
-                <div id="header-actions">
-        
-                    <a id="header-menu-btn" class="header-action-btn">
-                        <i class="fal fa-bars"></i>
+
+                <div id="bar-actions">
+                    <a id="header-menu-btn" class="bar-btn bg-gray-100 t-gray-600">
+                        <i class="fal fa-bars"></i>1
                     </a>
-        
-                    <a id="header-cart-btn" class="header-action-btn" data-bs-toggle="offcanvas" href="#offcanvasCart" role="button" aria-controls="offcanvasCart">
-                        <i class="fa-sharp fa-light fa-cart-shopping text-white"></i>
+
+                    <a
+                        id="header-cart-btn"
+                        class="bar-btn btn-offcanvas-open bg-gray-800 t-white d-none-md"
+                    >
+                        <i class="fa-sharp fa-light fa-cart-shopping text-white"></i>2
                     </a>
-        
                 </div>
-            </div>      
+            </div>
         </header>
 
-
-
-        <div class="offcanvas-right" id="offcanvas" >
+        <div class="offcanvas-right" id="offcanvas">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasCartLabel">
                     <i class="fa-duotone fa-cart-shopping text-primary"></i> Carrello
@@ -97,8 +93,6 @@
             </div>
         </div>
 
-        
-
         <div class="p-3">
             <h1>EURO-KEMICAL</h1>
             <p>
@@ -108,19 +102,20 @@
                     data-tooltip="Tultipaccio, tutto accio asd asd rerwsdcgedr hd"
                     >c</span
                 >
-                dolorum quidem omnis.  <a href="#" class="btn btn-main btn-offcanvas-open">click</a> Nihil minima eum laudantium optio similique, odio, mollitia
-                quos veniam tempora nostrum reprehenderit vitae molestiae?
+                dolorum quidem omnis.
+                <a href="#" class="btn btn-main btn-offcanvas-open">click</a> Nihil minima eum
+                laudantium optio similique, odio, mollitia quos veniam tempora nostrum reprehenderit
+                vitae molestiae?
             </p>
             <p>
                 <a href="#" class="btn btn-main">click</a>
             </p>
 
-
             <script>
                 const oc = document.getElementById("offcanvas");
                 const x = oc.querySelector(".btn-offcanvas-close");
                 const y = document.querySelector(".btn-offcanvas-open");
-    
+
                 const action = (ev) => {
                     ev.preventDefault();
                     ev.stopPropagation();
@@ -129,7 +124,6 @@
                 x.addEventListener("click", action);
                 y.addEventListener("click", action);
             </script>
-
 
             <div class="grid-sm-2 g-3 mb-3">
                 <div>
