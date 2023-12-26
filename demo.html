@@ -26,7 +26,7 @@
                     </a>
                 </div>
 
-                <nav id="nav" data-show>
+                <nav id="nav">
                     <span class="nav-close" nav-close></span>
                     <ul>
                         <a href="/catalog">
@@ -58,16 +58,12 @@
                 <div id="nav-overlay"></div>
 
                 <div id="bar-actions">
-                    <a id="nav-open-btn" nav-open class="bar-btn bg-gray-100 t-gray-600">
+                    <a id="nav-open-btn" nav-open class="bar-btn bg-gray-100 t-gray-600 d-none-md">
                         <i class="fal fa-bars"></i>
                     </a>
 
-                    <a
-                        id="header-cart-btn"
-                        class="bar-btn btn-offcanvas-open bg-gray-800 t-white d-none-md"
-                        oc-open
-                    >
-                        <i class="fa-sharp fa-light fa-cart-shopping text-white"></i>
+                    <a id="header-cart-btn" class="bar-btn bg-gray-800 t-white" oc-open >
+                        <i class="fa-light fa-cart-shopping text-white"></i>
                     </a>
                 </div>
             </div>
@@ -78,7 +74,7 @@
                 <h5 class="offcanvas-title" id="offcanvasCartLabel">
                     <i class="fa-duotone fa-cart-shopping text-primary"></i> Carrello
                 </h5>
-                <a class="btn-offcanvas-close" oc-close></a>
+                <a class="oc-close" oc-close></a>
             </div>
 
             <div class="offcanvas-body">
@@ -105,13 +101,29 @@
                     >c</span
                 >
                 dolorum quidem omnis.
-                <a href="#" class="btn btn-main btn-offcanvas-open">click</a> Nihil minima eum
+                <a href="#" class="btn btn-main offcanvas-open">click</a> Nihil minima eum
                 laudantium optio similique, odio, mollitia quos veniam tempora nostrum reprehenderit
                 vitae molestiae?
             </p>
             <p>
                 <a href="#" class="btn btn-main">click</a>
             </p>
+            <div>
+                <a class="menu-ref menu-main">menu</a>
+                <ul class="menu-dropdown">
+                    <a><li class="menu-item">Action</li></a>
+                    <a><li class="menu-item">Another action</li></a>
+                    <a><li class="menu-item">Something else here</li></a>
+                </ul>
+            </div>
+            <div>
+                <a class="menu-ref menu-main">menu</a>
+                <ul class="menu-dropdown">
+                    <a><li class="menu-item">Action</li></a>
+                    <a><li class="menu-item">Another action</li></a>
+                    <a><li class="menu-item">Something else here</li></a>
+                </ul>
+            </div>
 
             <p>
                 <!-- <span style="position: relative">

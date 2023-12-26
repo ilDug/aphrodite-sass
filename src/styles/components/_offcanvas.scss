@@ -52,7 +52,7 @@
         flex-grow: 1;
     }
 
-    & .btn-offcanvas-close {
+    & .oc-close {
         @include mx.buttonClose;
     }
 }

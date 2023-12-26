@@ -1,0 +1,50 @@
+@use "buttons" as *;
+
+.menu-ref{
+    --caret: "\f107";
+
+    @extend .btn;
+
+    &::after{
+        font: var(--fa-font-solid);
+        content: var(--caret);
+        display: inline-block;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        margin-left:0.5rem;
+    }
+}
+
+.menu-ref + .menu-dropdown{
+    position: absolute;
+    z-index: 9999999;
+    display: none;
+    flex-direction: column;
+
+    // transform: scaleY(0);
+    // transform-origin: top center;
+    // transition: transform 150ms ease-out;
+
+    width: max-content;
+    
+    border-style: solid;
+    border-width: $btn-b-w;
+    border-radius: $btn-b-r;
+
+    background: var(--c-gray-300);
+
+    & .menu-item{
+        padding: $btn-p;
+        cursor: pointer;
+
+        &:hover{
+            background: var(--c-gray-400);
+        }
+    }
+}
+
+
+.menu-ref[data-expanded] + .menu-dropdown{
+    // transform: scaleY(1);
+    display: flex;
+}
