@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-pro/css/all.min.css" />
-        <link rel="stylesheet" href="dist/styles/styles.css" />
+        <link rel="stylesheet" href="dist/styles.css" />
         <title>Document</title>
     </head>
     <body>
@@ -27,7 +27,7 @@
                 </div>
 
                 <nav id="nav" data-show>
-                    <span id="menu-close"></span>
+                    <span class="nav-close" nav-close></span>
                     <ul>
                         <a href="/catalog">
                             <li class="" id="nav-catalog">
@@ -58,13 +58,14 @@
                 <div id="nav-overlay"></div>
 
                 <div id="bar-actions">
-                    <a id="header-menu-btn" class="bar-btn bg-gray-100 t-gray-600">
+                    <a id="nav-open-btn" nav-open class="bar-btn bg-gray-100 t-gray-600">
                         <i class="fal fa-bars"></i>
                     </a>
 
                     <a
                         id="header-cart-btn"
                         class="bar-btn btn-offcanvas-open bg-gray-800 t-white d-none-md"
+                        oc-open
                     >
                         <i class="fa-sharp fa-light fa-cart-shopping text-white"></i>
                     </a>
@@ -77,7 +78,7 @@
                 <h5 class="offcanvas-title" id="offcanvasCartLabel">
                     <i class="fa-duotone fa-cart-shopping text-primary"></i> Carrello
                 </h5>
-                <a class="btn-offcanvas-close"></a>
+                <a class="btn-offcanvas-close" oc-close></a>
             </div>
 
             <div class="offcanvas-body">
@@ -113,7 +114,7 @@
             </p>
 
             <p>
-                <span style="position: relative">
+                <!-- <span style="position: relative">
                     <a id="usage-anchor">Set with idref</a>
                     <md-menu id="usage-menu" anchor="usage-anchor">
                         <md-menu-item>
@@ -126,34 +127,10 @@
                             <div slot="headline">Cucumber</div>
                         </md-menu-item>
                     </md-menu>
-                </span>
+                </span> -->
             </p>
 
-            <script src="./node_modules/@material/web/menu/menu.js"></script>
-
-            <script type="module">
-                const oc = document.getElementById("offcanvas");
-                const x = oc.querySelector(".btn-offcanvas-close");
-                const y = document.querySelector(".btn-offcanvas-open");
-
-                const action = (ev) => {
-                    ev.preventDefault();
-                    ev.stopPropagation();
-                    oc.toggleAttribute("data-show");
-                };
-                x.addEventListener("click", action);
-                y.addEventListener("click", action);
-
-
-                // This example uses anchor as an ID reference
-                const anchorEl = document.body.querySelector("#usage-anchor");
-                const menuEl = document.body.querySelector("#usage-menu");
-
-                anchorEl.addEventListener("click", () => {
-                    menuEl.open = !menuEl.open;
-                });
-            </script>
-
+            <!-- <script src="./node_modules/@material/web/menu/menu.js"></script> -->
             <div class="grid-sm-2 g-3 mb-3">
                 <div>
                     <select name="dag" id="">
@@ -232,5 +209,7 @@
                 </div>
             </div>
         </div>
+
+        <script src="./dist/bundle.js"></script>
     </body>
 </html>

@@ -1,34 +1,49 @@
 {
-  "name": "aphrodite-sass",
-  "version": "0.0.0",
-  "description": "web desin system ",
-  "main": "index.js",
-  "scripts": {
-    "sass:dev": "sass --watch --update --poll --style=expanded src:dist/styles",
-    "sass:prod": "sass --no-source-map --style=compressed src:dist/styles"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ilDug/aphrodite-sass.git"
-  },
-  "keywords": [
-    "sass",
-    "css",
-    "scss",
-    "web-design"
-  ],
-  "author": "ilDug",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ilDug/aphrodite-sass/issues"
-  },
-  "homepage": "https://github.com/ilDug/aphrodite-sass#readme",
-  "devDependencies": {
-    "@fortawesome/fontawesome-pro": "^6.5.1",
-    "bootstrap": "^5.3.2",
-    "sass": "^1.69.5"
-  },
-  "dependencies": {
-    "@material/web": "^1.1.1"
-  }
+    "name": "aphrodite-sass",
+    "version": "0.0.0",
+    "description": "web desin system ",
+    "main": "index.js",
+    "scripts": {
+        "sass:dev": "sass --watch --update --poll --style=expanded src/styles:dist/styles",
+        "sass:prod": "sass --no-source-map --style=compressed src/styles:dist/styles",
+        "dev": "webpack --progress --watch --config webpack.config.js --mode=development --env VERSION='0.0.0'",
+        "build": "webpack  --config  webpack.config.js --mode=production --env VERSION='0.0.0'",
+        "tsc": "tsc"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ilDug/aphrodite-sass.git"
+    },
+    "keywords": [
+        "sass",
+        "css",
+        "scss",
+        "web-design"
+    ],
+    "author": "ilDug",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/ilDug/aphrodite-sass/issues"
+    },
+    "homepage": "https://github.com/ilDug/aphrodite-sass#readme",
+    "devDependencies": {
+        "@fortawesome/fontawesome-pro": "^6.5.1",
+        "bootstrap": "^5.3.2",
+        "clean-webpack-plugin": "^4.0.0",
+        "copy-webpack-plugin": "^11.0.0",
+        "css-loader": "^6.8.1",
+        "file-loader": "^6.2.0",
+        "mini-css-extract-plugin": "^2.7.6",
+        "sass": "^1.69.5",
+        "sass-loader": "^13.3.3",
+        "style-loader": "^3.3.3",
+        "ts-loader": "^9.5.1",
+        "typescript": "^5.3.3",
+        "webpack": "^5.89.0",
+        "webpack-cli": "^5.1.4",
+        "webpack-dev-server": "^4.15.1"
+    },
+    "dependencies": {
+        "@material/web": "^1.1.1"
+    }
 }

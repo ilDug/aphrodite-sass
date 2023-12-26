@@ -131,7 +131,7 @@ header {
 
 
     // CLOSE BUTTON
-    #bar nav #menu-close {
+    #bar nav .nav-close {
         @include buttonClose;
         --btn-close-c: var(--c-gray-600);
         display: block;
