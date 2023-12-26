@@ -6,7 +6,6 @@ export function applyMenu() {
 
     menuRefs.forEach(ref => {
         const dorpdown = ref.nextElementSibling as HTMLElement
-
         const popperOptions: Options = {
             placement: 'bottom-start',
             modifiers: [
@@ -16,7 +15,6 @@ export function applyMenu() {
             strategy: 'absolute'
         }
 
-
         const popperInstance = createPopper(ref, dorpdown, popperOptions);
 
         ref.addEventListener('click', ev => {
@@ -24,20 +22,10 @@ export function applyMenu() {
             popperInstance.update();
         })
 
-
         //chiude il dorpdown
         document.addEventListener('click', ev => {
             if (ref == ev.target) return;
             ref.removeAttribute('data-expanded')
-
-            // Disable the event listeners
-            popperInstance.setOptions((options) => ({
-                ...options,
-                modifiers: [
-                    ...options.modifiers,
-                    { name: 'eventListeners', enabled: false },
-                ],
-            }));
         })
     })
 }

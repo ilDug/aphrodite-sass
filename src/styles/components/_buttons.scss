@@ -5,13 +5,13 @@ $btn-p: 0.25rem 1rem;
 $btn-b-w: 1px 1px 1px 1px;
 $btn-b-r: 3px;
 
-$btn-c-contrast: 0;
-$btn-bg-contrast: 400;
-$btn-b-contrast: $btn-bg-contrast + 100;
+$btn-c-shade: 0; //mettere 0 se lo si vuole bianco
+$btn-bg-shade: 400;
+$btn-b-shade: $btn-bg-shade + 100;
 
-$btn-c-contrast-ho: $btn-c-contrast + 0;
-$btn-bg-contrast-ho: $btn-bg-contrast + 100;
-$btn-b-contrast-ho: $btn-bg-contrast-ho + 100;
+$btn-c-shade-ho: $btn-c-shade + 0;
+$btn-bg-shade-ho: $btn-bg-shade + 100;
+$btn-b-shade-ho: $btn-bg-shade-ho + 100;
 
 .btn {
     display: inline-flex;
@@ -34,21 +34,21 @@ $btn-b-contrast-ho: $btn-bg-contrast-ho + 100;
 
 @each $tint, $color in c.$theme {
     .btn-#{$tint} {
-        @if $btn-c-contrast == 0 {
+        @if $btn-c-shade == 0 {
             color: white;
         } @else {
-            color: var(--c-#{$tint}-#{$btn-c-contrast});
+            color: var(--c-#{$tint}-#{$btn-c-shade});
         }
-        background: var(--c-#{$tint}-#{$btn-bg-contrast});
-        border-color: var(--c-#{$tint}-#{$btn-b-contrast});
+        background: var(--c-#{$tint}-#{$btn-bg-shade});
+        border-color: var(--c-#{$tint}-#{$btn-b-shade});
         &:hover {
-            @if $btn-c-contrast == 0 {
+            @if $btn-c-shade == 0 {
                 color: white;
             } @else {
-                color: var(--c-#{$tint}-#{$btn-c-contrast-ho});
+                color: var(--c-#{$tint}-#{$btn-c-shade-ho});
             }
-            background: var(--c-#{$tint}-#{$btn-bg-contrast-ho});
-            border-color: var(--c-#{$tint}-#{$btn-b-contrast-ho});
+            background: var(--c-#{$tint}-#{$btn-bg-shade-ho});
+            border-color: var(--c-#{$tint}-#{$btn-b-shade-ho});
         }
     }
 }

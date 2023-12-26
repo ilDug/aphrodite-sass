@@ -1,50 +1,87 @@
 @use "buttons" as *;
+@use "../core/colors" as c;
 
-.menu-ref{
+.menu-ref {
     --caret: "\f107";
 
     @extend .btn;
 
-    &::after{
+    &::after {
         font: var(--fa-font-solid);
         content: var(--caret);
         display: inline-block;
         text-rendering: auto;
         -webkit-font-smoothing: antialiased;
-        margin-left:0.5rem;
+        margin-left: 0.5rem;
     }
 }
 
-.menu-ref + .menu-dropdown{
+.menu-ref + .menu-dropdown {
     position: absolute;
     z-index: 9999999;
     display: none;
     flex-direction: column;
 
-    // transform: scaleY(0);
-    // transform-origin: top center;
-    // transition: transform 150ms ease-out;
-
     width: max-content;
-    
+
     border-style: solid;
     border-width: $btn-b-w;
     border-radius: $btn-b-r;
 
     background: var(--c-gray-300);
 
-    & .menu-item{
+    & .menu-item {
         padding: $btn-p;
         cursor: pointer;
-
-        &:hover{
-            background: var(--c-gray-400);
-        }
     }
 }
 
-
-.menu-ref[data-expanded] + .menu-dropdown{
-    // transform: scaleY(1);
+.menu-ref[data-expanded] + .menu-dropdown {
     display: flex;
+}
+
+@each $tint, $color in c.$theme {
+    .menu-#{$tint}, .menu-#{$tint}:hover {
+        @if $btn-c-shade == 0 {
+            color: white;
+        } @else {
+            color: var(--c-#{$tint}-#{$btn-c-shade});
+        }
+        background: var(--c-#{$tint}-#{$btn-bg-shade});
+        border-color: var(--c-#{$tint}-#{$btn-b-shade});
+    }
+    .menu-ref + .dropdown-#{$tint} {
+        @if $btn-c-shade == 0 {
+            color: white;
+        } @else {
+            color: var(--c-#{$tint}-#{$btn-c-shade});
+        }
+
+        border-color: var(--c-#{$tint}-#{$btn-b-shade});
+
+        .menu-item {
+            background: var(--c-#{$tint}-#{$btn-bg-shade});
+
+            &:hover {
+                background: var(--c-#{$tint}-#{$btn-bg-shade-ho});
+            }
+        }
+    }
+}
+.menu-white, .menu-white:hover {
+    color: var(--c-body);
+}
+
+.menu-ref + .dropdown-white {
+    color: var(--c-body);
+    border-color: var(--c-gray-100);
+
+    .menu-item {
+        background: white;
+
+        &:hover {
+            background: var(--c-gray-100);
+            border-color: var(--c-gray-200);
+        }
+    }
 }

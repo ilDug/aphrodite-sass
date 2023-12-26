@@ -43,10 +43,16 @@
 }
 
 
-// NASCONDE AL SI SOTTO DEL BREAKPOINT (COMPRESO)
+// NASCONDE AL DI SOTTO DEL BREAKPOINT (COMPRESO)
 @each $breakpoint, $width in bp.$bp{
     @include media-down($breakpoint) {
-        .d-none-#{$breakpoint} {
+        .d-none-down-#{$breakpoint} {
+            display: none !important;
+        }
+    }
+
+    @include media-up($breakpoint) {
+        .d-none-up-#{$breakpoint} {
             display: none !important;
         }
     }

@@ -80,6 +80,7 @@ header {
 
     #bar nav {
         font-size: $nav-fs;
+        padding: 0 1rem;
         
         // MOBILE SIZE #######
         @include media-down(md) {
@@ -91,6 +92,7 @@ header {
             background: $nav-bg-sm;
             transition: bottom 0.5s ease;
             z-index: 99;
+            
             ///////////////////////////////
 
             // OPENED
@@ -106,7 +108,7 @@ header {
         // desktop SIZE #######
         @include media-up(md) {
             flex: 1 0 auto;
-            padding: 1rem;
+            
 
             & + #nav-overlay {
                 display: none;
