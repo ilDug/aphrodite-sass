@@ -1,4 +1,4 @@
-import { createPopper, Modifier, Options } from '@popperjs/core';
+import { createPopper, Options } from '@popperjs/core';
 
 
 export function applyMenu() {

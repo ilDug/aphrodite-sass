@@ -5,6 +5,7 @@ import { applyExpBox } from "./expansion-box";
 import { applyMenu } from "./menu";
 import { applyNavbar } from "./navbar";
 import { applyOffcanvas } from "./offcanvas";
+import { applyTooltip } from "./tooltip";
 
 /** RUN **************************** */
 window.onload = async () => {
@@ -14,4 +15,5 @@ window.onload = async () => {
     applyNavbar('nav');
     applyOffcanvas('offcanvas');
     applyMenu();
+    applyTooltip();
 }
