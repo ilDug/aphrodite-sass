@@ -13,6 +13,8 @@ $sides: (
     b: "bottom",
     l: "left",
     r: "right",
+    s: "left",
+    e: "right",
 );
 
 @each $lev, $val in $levels {

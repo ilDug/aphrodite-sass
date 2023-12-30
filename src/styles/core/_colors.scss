@@ -1,24 +1,19 @@
 @use "sass:color";
 @use "sass:map";
 
-:root{
+:root {
     // colore di sfondo
-    --c-bg: var(--c-gray-200); 
+    --c-bg: var(--c-gray-100);
 
     // colore del testo
-    --c-body: var(--c-gray-700);
-
-    // DECORATIONS
-    --title-line-color: var(--c-main-300);
-    --underlined-color: var(--c-alter-300)
-
+    --c-body: var(--c-gray-600);
 }
 
 $theme: (
     "main": rgb(255, 91, 96),
     "vice": hsl(266, 40%, 60%),
-    "alter": hsl(209, 40%, 60%),
-    "accent": rgb(191, 215, 36),
+    "alter": rgb(60, 67, 70),
+    "accent": rgb(162, 1, 125),
     "error": hsl(0, 50%, 60%),
     "warn": hsl(50, 70%, 60%),
     "goal": hsl(100, 40%, 60%),
@@ -67,24 +62,6 @@ $shades: (
 }
 
 // ###################################
-// TEXT
-@each $tint, $color in $theme {
-    .t-#{$tint} {
-        color: #{$color} !important;
-    }
-
-    @each $shade, $light in $shades {
-        .t-#{$tint}-#{$shade} {
-            color: #{color.scale($color, $lightness: $light)} !important;
-        }
-    }
-}
-
-.t-white{
-    color:white !important;
-}
-
-// ###################################
 // BACKGROUND
 @each $tint, $color in $theme {
     .bg-#{$tint} {
@@ -94,24 +71,6 @@ $shades: (
     @each $shade, $light in $shades {
         .bg-#{$tint}-#{$shade} {
             background-color: #{color.scale($color, $lightness: $light)} !important;
-        }
-    }
-}
-
-// ###################################
-// BORDERS
-@each $tint, $color in $theme {
-    .b-#{$tint} {
-        border-width: 1px;
-        border-style: solid;
-        border-color: #{$color} !important;
-    }
-
-    @each $shade, $light in $shades {
-        .b-#{$tint}-#{$shade} {
-            border-width: 1px;
-            border-style: solid;
-            border-color: #{color.scale($color, $lightness: $light)} !important;
         }
     }
 }

@@ -6,15 +6,12 @@
     grid-template-columns: repeat($cols, 1fr);
 }
 
-$columns: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
-
-@each $c in $columns {
+@for $c from 1 through 12 {
     .grid-#{$c} {
         @include containerized-grid($c);
-
-        .span-#{$c} {
-            grid-column: span $c;
-        }
+    }
+    .span-#{$c} {
+        grid-column: span $c;
     }
 
     @include media-down(sm) {
@@ -24,22 +21,25 @@ $columns: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
     }
 }
 
-@each $c in $columns {
+@for $c from 1 through 12 {
     @each $bp, $lim in b.$bp {
         @include media-up($bp) {
-            .grid-#{$bp}-#{$c} {
+            .grid-#{$c}-#{$bp} {
                 @include containerized-grid($c);
+            }
+            .span-#{$c}-#{$bp} {
+                grid-column: span $c;
             }
         }
 
         @include media-down($bp) {
-            .grid-#{$bp}-#{$c} {
+            .grid-#{$c}-#{$bp} {
                 display: grid;
             }
         }
 
         @include media-only($bp) {
-            .span-#{$bp}-#{$c} {
+            .span-#{$c}-#{$bp}-only {
                 grid-column: span $c;
             }
         }

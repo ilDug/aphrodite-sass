@@ -1,83 +1,136 @@
 @use "mixins" as *;
+@use "colors" as c;
+@use "sass:color";
 
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Josefin+Sans:wght@300;400;700&family=Montserrat:ital,wght@0,100;0,400;0,700;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Josefin+Sans:wght@300;400;700&family=Montserrat:ital,wght@0,100;0,400;0,700;1,400&display=swap");
 
 /// VARIABLES
 :root {
-  --ff-body: "Montserrat", sans-serif;
-  --ff-main: "Montserrat", sans-serif;
-  --ff-alt: "Josefin Sans", sans-serif;
-  --ff-headings: "Josefin Sans", sans-serif;
-  --ff-mono: "Inconsolata", monospace;
-  --f-size: 16px;
-  --line-height: 1.5;
+    --ff-body: "Montserrat", sans-serif;
+    --ff-main: "Montserrat", sans-serif;
+    --ff-alt: "Josefin Sans", sans-serif;
+    --ff-headings: "Josefin Sans", sans-serif;
+    --ff-mono: "Inconsolata", monospace;
+    --f-size: 16px;
+    --line-height: 1.5;
+}
+
+$sizes: (
+    xs: 0.7em,
+    sm: 0.8em,
+    md: 1em,
+    lg: 1.75em,
+    xl: 2.5em,
+    xxl: 5em,
+);
+
+@each $lev, $size in $sizes {
+    .t-#{$lev} {
+        font-size: $size !important;
+    }
 }
 
 // ################################################
 // CLASSES
 
 .ff-mono {
-  font-family: var(--ff-mono);
+    font-family: var(--ff-mono);
 }
 
 // puntini di sospensione su tensto lungo;
 .truncated {
-  @include ellipsis;
+    @include ellipsis;
+}
+
+.t-center {
+    text-align: center !important;
+}
+
+.t-start,
+.t-left {
+    text-align: left;
+}
+.t-end,
+.t-right {
+    text-align: right;
+}
+
+// ###################################
+// COLORS
+@each $tint, $color in c.$theme {
+    .t-#{$tint} {
+        color: #{$color} !important;
+    }
+
+    @each $shade, $light in c.$shades {
+        .t-#{$tint}-#{$shade} {
+            color: #{color.scale($color, $lightness: $light)} !important;
+        }
+    }
+}
+
+.t-white {
+    color: white !important;
+
+    a,
+    a:hover {
+        color: white !important;
+    }
 }
 
 // ################################################
 /// COMMON
 
 %heading {
-  margin: 0;
-  font-family: var(--ff-headings);
+    margin: 0;
+    font-family: var(--ff-headings);
 }
 
 h1 {
-  @extend %heading;
-  font-size: calc(var(--f-size) * 2.5);
+    @extend %heading;
+    font-size: calc(var(--f-size) * 2.5);
 }
 
 h2 {
-  @extend %heading;
-  font-size: calc(var(--f-size) * 2);
+    @extend %heading;
+    font-size: calc(var(--f-size) * 2);
 }
 
 h4 {
-  @extend %heading;
-  font-size: calc(var(--f-size) * 1.5);
+    @extend %heading;
+    font-size: calc(var(--f-size) * 1.5);
 }
 
 h5 {
-  @extend %heading;
-  font-size: calc(var(--f-size) * 1.25);
+    @extend %heading;
+    font-size: calc(var(--f-size) * 1.25);
 }
 
 h6 {
-  @extend %heading;
-  font-size: calc(var(--f-size) * 1);
+    @extend %heading;
+    font-size: calc(var(--f-size) * 1);
 }
 
 p {
-  margin-top: 0;
-  margin-bottom: 1rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
 }
 
 // Small
 // Add the correct font size in all browsers
 small {
-  font-size: calc(var(--f-size) * 0.8);
+    font-size: calc(var(--f-size) * 0.8);
 }
 
 // Links
 a {
-  color: var(--c-main-500);
-  text-decoration: none;
-
-  &:hover {
-    color: var(--c-main-700);
+    color: var(--c-main-500);
     text-decoration: none;
-  }
+
+    &:hover {
+        color: var(--c-main-700);
+        text-decoration: none;
+    }
 }
 
 // And undo these styles for placeholder links/named anchors (without href).
@@ -86,20 +139,20 @@ a {
 // See https://github.com/twbs/bootstrap/issues/19402
 
 a:not([href]):not([class]) {
-  &,
-  &:hover {
-    color: inherit;
-    text-decoration: none;
-    cursor: pointer;
-  }
+    &,
+    &:hover {
+        color: inherit;
+        text-decoration: none;
+        cursor: pointer;
+    }
 }
 
 ::selection {
-  background: var(--c-main-300);
+    background: var(--c-main-300);
 }
 ::-moz-selection {
-  background: var(--c-main-300); /* Firefox */
+    background: var(--c-main-300); /* Firefox */
 }
 ::-webkit-selection {
-  background: var(--c-main-300); /* Safari */
+    background: var(--c-main-300); /* Safari */
 }

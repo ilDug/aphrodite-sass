@@ -3,11 +3,11 @@
     flex-wrap: nowrap;
 }
 
-.d-flex{
+.flex{
     @extend %flex;
 }
 
-.d-flex-col {
+.flex-col {
     @extend %flex;
     flex-direction: column
 }
@@ -22,6 +22,14 @@
     justify-content: center;
 }
 
+.justify-around{
+    justify-content: space-around;
+}
+
 .align-center {
     align-items: center;
+}
+
+.grow{
+    flex-grow: 1;
 }

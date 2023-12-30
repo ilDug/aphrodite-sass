@@ -1,30 +1,44 @@
 @use "mixins" as *;
 
+:root {
+    --title-line-color: var(--c-main-300);
+    --underlined-color: var(--c-alter-300);
+}
 
 ////// DECORATIONS ///////
 .underlined {
-    background-image: linear-gradient(to right, var(--underlined-color) 0%, var(--underlined-color) 100%);
+    background-image: linear-gradient(
+        to right,
+        var(--underlined-color) 0%,
+        var(--underlined-color) 100%
+    );
     background-size: 100% 35%;
     background-repeat: repeat-x;
     background-position: 0 85%;
 }
 
-h1, h2, h3, h4, h5, h6{
-    &.title-line{
-        
-        &:before, &:after{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    &.title-line {
+        &:before,
+        &:after {
             content: "";
-            border-left: .1rem solid var(--title-line-color);
+            border-left: 0.1rem solid var(--title-line-color);
             width: 4rem;
             margin: 0 0.2rem;
             transform: translateY(-0.5rem);
         }
 
-        @include media-up(sm){
-            &:before, &:after{
+        @include media-up(sm) {
+            &:before,
+            &:after {
                 display: inline-block;
                 content: "";
-                border-top: .1rem solid var(--title-line-color);
+                border-top: 0.1rem solid var(--title-line-color);
                 width: 4rem;
                 margin: 0 1rem;
                 transform: translateY(-0.5rem);

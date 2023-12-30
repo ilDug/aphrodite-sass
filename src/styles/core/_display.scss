@@ -14,6 +14,12 @@
     height: auto !important;
 }
 
+@each $breakpoint, $width in bp.$bp{
+    .max-w-#{$breakpoint}{
+        margin: auto;
+        max-width: $width;
+    }
+}
 
 .hide {
     visibility: hidden;
@@ -25,7 +31,9 @@
     .h-child {
         visibility: hidden;
         opacity: 0;
-        transition: visibility 0.5s ease, opacity 0.5s ease;
+        transition:
+            visibility 0.5s ease,
+            opacity 0.5s ease;
     }
 
     &:hover {
@@ -36,24 +44,33 @@
     }
 }
 
-// LAYOUT RESPONSIVE 
+// LAYOUT RESPONSIVE
 
-.d-none {
+.d-none,
+.not {
     display: none !important;
 }
 
-
 // NASCONDE AL DI SOTTO DEL BREAKPOINT (COMPRESO)
-@each $breakpoint, $width in bp.$bp{
+@each $breakpoint, $width in bp.$bp {
     @include media-down($breakpoint) {
-        .d-none-down-#{$breakpoint} {
+        .not-down-#{$breakpoint} {
             display: none !important;
         }
     }
 
     @include media-up($breakpoint) {
-        .d-none-up-#{$breakpoint} {
+        .not-up-#{$breakpoint} {
             display: none !important;
         }
     }
+}
+
+.float-left,
+.float-start {
+    float: left !important;
+}
+.float-right,
+.float-end {
+    float: right !important;
 }

@@ -1,0 +1,42 @@
+@use "sass:color";
+@use "colors" as c;
+
+// COLORS
+@each $tint, $color in c.$theme {
+    .b-#{$tint} {
+        border-width: 1px;
+        border-style: solid;
+        border-color: #{$color} !important;
+    }
+
+    @each $shade, $light in c.$shades {
+        .b-#{$tint}-#{$shade} {
+            border-width: 1px;
+            border-style: solid;
+            border-color: #{color.scale($color, $lightness: $light)} !important;
+        }
+    }
+}
+
+// BORDER RADIUS
+
+$radia: (
+    0: 0px,
+    2: 2px,
+    3: 3px,
+    4: 4px,
+    5: 5px,
+    6: 6px,
+    8: 8px,
+    10: 10px,
+    12: 12px,
+    24: 24px,
+    36: 36px,
+    50: 50%,
+);
+
+@each $level, $radius in $radia {
+    .br-#{$level} {
+        border-radius: $radius;
+    }
+}

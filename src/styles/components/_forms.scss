@@ -1,6 +1,7 @@
 .form-group,
-input,
-select {
+input:not([type='checkbox']),
+select,
+textarea {
     --control-bg: white;
     --control-c: inherit;
     --control-b-r: 3px;
@@ -18,11 +19,12 @@ select {
 }
 
 select,
-input {
+input:not([type='checkbox']),
+textarea {
     // appearance: none;
     display: inline-block;
     position: relative;
-    cursor: pointer;
+    cursor: text;
     width: 100%;
     color: var(--control-c);
     height: var(--control-line-height);
@@ -39,9 +41,11 @@ input {
     }
 }
 
+textarea{
+    height: auto;
+}
+
 .form-group {
     display: flex;
     align-items: center;
 }
-
-
