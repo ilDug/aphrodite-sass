@@ -1,27 +1,31 @@
-import { createPopper, Options } from '@popperjs/core';
+import { createPopper, Instance, Options } from "@popperjs/core";
 
 export function applyTooltip() {
-    const tooltips = [...document.querySelectorAll('[data-tooltip]')];
+    const tooltips = [...document.querySelectorAll("[data-tooltip]")];
+    tooltips.forEach((el) => createTooltip(el));
+}
 
+
+
+
+export function createTooltip(ref: Element): Instance{
     const popperOptions: Options = {
-        placement: 'top',
+        placement: "top",
         modifiers: [
-            { name: 'offset', options: { offset: [0, 2] } },
-            { name: 'eventListeners', enabled: true },
+            { name: "offset", options: { offset: [0, 2] } },
+            { name: "eventListeners", enabled: true },
         ],
-        strategy: 'absolute'
-    }
+        strategy: "absolute",
+    };
 
-    tooltips.forEach(el => {
-        const tooltip = document.createElement('span');
-        tooltip.classList.add('tooltip');
-        tooltip.innerText = el.getAttribute('data-tooltip');
-        el.insertAdjacentElement('afterend', tooltip);
+    const tooltip = document.createElement("span");
+    tooltip.classList.add("tooltip");
+    tooltip.innerText = ref.getAttribute("data-tooltip");
+    ref.insertAdjacentElement("afterend", tooltip);
 
-        const popperInstance = createPopper(el, tooltip, popperOptions);
+    const popperInstance = createPopper(ref, tooltip, popperOptions);
 
-        el.addEventListener('mouseenter', ev => popperInstance.update())
+    ref.addEventListener("mouseenter", (ev) => popperInstance.update());
 
-    })
-
+    return popperInstance
 }
