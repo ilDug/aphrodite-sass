@@ -1,50 +1,42 @@
 {
-    "name": "aphrodite-sass",
-    "version": "0.0.0",
-    "description": "web desin system ",
-    "main": "index.js",
-    "scripts": {
-        "sass:dev": "sass --watch --update --poll --style=expanded src/styles:dist/styles",
-        "sass:prod": "sass --no-source-map --style=compressed src/styles:dist/styles",
-        "dev": "webpack --progress --watch --config webpack.config.js --mode=development --env VERSION='0.0.0'",
-        "build": "webpack  --config  webpack.config.js --mode=production --env VERSION='0.0.0'",
-        "tsc": "tsc"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/ilDug/aphrodite-sass.git"
-    },
-    "keywords": [
-        "sass",
-        "css",
-        "scss",
-        "web-design"
-    ],
-    "author": "ilDug",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/ilDug/aphrodite-sass/issues"
-    },
-    "homepage": "https://github.com/ilDug/aphrodite-sass#readme",
-    "devDependencies": {
-        "@fortawesome/fontawesome-pro": "^6.5.1",
-        "bootstrap": "^5.3.2",
-        "clean-webpack-plugin": "^4.0.0",
-        "copy-webpack-plugin": "^11.0.0",
-        "css-loader": "^6.8.1",
-        "file-loader": "^6.2.0",
-        "mini-css-extract-plugin": "^2.7.6",
-        "sass": "^1.69.5",
-        "sass-loader": "^13.3.3",
-        "style-loader": "^3.3.3",
-        "ts-loader": "^9.5.1",
-        "typescript": "^5.3.3",
-        "webpack": "^5.89.0",
-        "webpack-cli": "^5.1.4",
-        "webpack-dev-server": "^4.15.1"
-    },
-    "dependencies": {
-        "@material/web": "^1.1.1",
-        "@popperjs/core": "^2.11.8"
-    }
+  "name": "aphrodite-sass",
+  "version": "0.0.0",
+  "description": "web desin system ",
+  "main": "index.js",
+  "scripts": {
+    "sass:dev": "sass --watch --update --poll --style=expanded src/styles:dist/styles",
+    "sass:prod": "sass --no-source-map --style=compressed src/styles:dist/styles",
+    "es:dev": "esbuild src/scripts/index.tsx --bundle --watch --sourcemap --outfile=dist/bundle.js",
+    "es:build": "esbuild src/scripts/index.tsx --bundle --minify  --outfile=dist/bundle.js",
+    "clear": "rm -rf dist/*",
+    "dev": "bun run sass:dev & bun run es:dev",
+    "build": "bun run clear & bun run sass:prod & bun run es:build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilDug/aphrodite-sass.git"
+  },
+  "keywords": [
+    "sass",
+    "css",
+    "scss",
+    "web-design"
+  ],
+  "author": "ilDug",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ilDug/aphrodite-sass/issues"
+  },
+  "homepage": "https://github.com/ilDug/aphrodite-sass#readme",
+  "devDependencies": {
+    "@fortawesome/fontawesome-pro": "^6.5.1",
+    "bootstrap": "^5.3.2",
+    "esbuild": "^0.19.11",
+    "sass": "^1.69.6",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@material/web": "^1.1.1",
+    "@popperjs/core": "^2.11.8"
+  }
 }

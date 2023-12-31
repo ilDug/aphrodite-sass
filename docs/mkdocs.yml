@@ -7,6 +7,9 @@ theme:
     accent: indigo
   features:
     - content.code.copy
+    - content.code.annotate 
+  icon:
+    repo: fontawesome/brands/github
   
 markdown_extensions:
   - pymdownx.highlight:
@@ -16,3 +19,6 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+
+repo_url: https://github.com/ildug/aphrodite-sass
+repo_name: ildug/aphrodite-sass

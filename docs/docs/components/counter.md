@@ -2,7 +2,7 @@
 
 ## React Component
 
-```tsx
+```typescript
 import React, { useContext } from "react";
 import { settings } from "../contexts";
 
