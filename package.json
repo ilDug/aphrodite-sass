@@ -29,7 +29,6 @@
   },
   "homepage": "https://github.com/ilDug/aphrodite-sass#readme",
   "devDependencies": {
-    "@fortawesome/fontawesome-pro": "^6.5.1",
     "bootstrap": "^5.3.2",
     "esbuild": "^0.19.11",
     "sass": "^1.69.6",
