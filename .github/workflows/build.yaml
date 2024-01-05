@@ -1,4 +1,4 @@
-name: Build Syles and Scripts
+name: build
 
 on: [push]
 
