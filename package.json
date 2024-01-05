@@ -6,8 +6,8 @@
   "scripts": {
     "sass:dev": "sass --watch --update --poll --style=expanded src/styles:dist/styles",
     "sass:prod": "sass --no-source-map --style=compressed src/styles:dist/styles",
-    "es:dev": "esbuild src/scripts/index.tsx --bundle --watch --sourcemap --outfile=dist/bundle.js",
-    "es:build": "esbuild src/scripts/index.tsx --bundle --minify  --outfile=dist/bundle.js",
+    "es:dev": "esbuild src/scripts/index.ts --bundle --watch --sourcemap --outfile=dist/bundle.js",
+    "es:build": "esbuild src/scripts/index.ts --bundle --minify  --outfile=dist/bundle.js",
     "clear": "rm -rf dist/*",
     "dev": "bun run sass:dev & bun run es:dev",
     "build": "bun run clear & bun run sass:prod & bun run es:build"
