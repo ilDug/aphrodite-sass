@@ -1,0 +1,28 @@
+name: Build Syles and Scripts
+
+on: [push]
+
+jobs:
+    sass:
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                node-version: ["16.x", "18.x", "20.x"]
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Setup Nodejs
+              uses: actions/setup-node@v3
+              with:
+                node-version: ${{ matrix.node-version }}
+
+            - name: install dependecies
+              run: npm ci
+            
+            - name: build SASS
+              run: npm run sass:prod
+            
+            - name: build TYPSCRIPT
+              run: npm run es:build
