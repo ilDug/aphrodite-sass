@@ -1,10 +1,10 @@
 # Colors
 
-Per creare un tema , il promo passo è scegliere i colori (testo, sfodo bordi).
+Per creare un tema , il primo passo è scegliere i colori (testo, sfodo bordi).
 
 ## Tinte
 
-I colori vengono nominati con una eqqnza che li permete di dedicare ai diversi usi possibili:
+I colori vengono nominati in modo da poterli dedicare ai diversi usi possibili:
 
 - `main` : colore principale del tema del sito.
 - `vice` : colore secondario alternativo, che stacca dal tema del sito.
@@ -69,3 +69,15 @@ to dalle classi:
 ```html
 .b-main .b-charm-200 .b-vice-100
 ```
+
+## Funzioni per i colori
+
+Esistono funzioni che possono essere utili per modificare i colori (oltre alla possibilità di indicare una tinta).
+
+### Schiarire un colore
+
+`tint-color($color, $percent);`
+
+### Scurire un colore
+
+`shade-color($color, $percent);`
