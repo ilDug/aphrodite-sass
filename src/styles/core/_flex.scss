@@ -12,7 +12,7 @@
     flex-direction: column
 }
 
-.d-center{
+.f-center, .d-center{
     @extend %flex;
     justify-content: center;
     align-items: center;
@@ -24,6 +24,18 @@
 
 .justify-around{
     justify-content: space-around;
+}
+
+.justify-end{
+    justify-content: flex-end;
+}
+
+.justify-between{
+    justify-content: space-between;
+}
+
+.align-end {
+    align-items: flex-end;
 }
 
 .align-center {
