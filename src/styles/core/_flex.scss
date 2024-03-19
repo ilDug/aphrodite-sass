@@ -20,28 +20,37 @@
 }
 
 .justify-center{
-    justify-content: center;
+    justify-content: center !important;
 }
 
 .justify-around{
-    justify-content: space-around;
+    justify-content: space-around !important;
+}
+
+.justify-start{
+    justify-content: flex-start !important;
 }
 
 .justify-end{
-    justify-content: flex-end;
+    justify-content: flex-end !important;
 }
 
 .justify-between{
-    justify-content: space-between;
+    justify-content: space-between !important;
+}
+
+.align-start {
+    align-items: flex-start !important;
 }
 
 .align-end {
-    align-items: flex-end;
+    align-items: flex-end !important;
 }
 
 .align-center {
-    align-items: center;
+    align-items: center !important;
 }
+
 
 .grow{
     flex-grow: 1;
