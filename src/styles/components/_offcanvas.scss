@@ -2,8 +2,8 @@
 
 #offcanvas {
     --offc-width: 20rem;
-    --offc-bg: var(--c-gray-700);
-    --offc-c: var(--c-gray-100);
+    --offc-bg: var(--c-gray-300);
+    --offc-c: var(--c-gray-600);
     --offc-p: 1rem;
 
     position: fixed;
@@ -36,7 +36,7 @@
         transform: translateX(+100%);
     }
 
-    &[data-show] {
+    &.show {
         visibility: visible;
         transform: none;
     }

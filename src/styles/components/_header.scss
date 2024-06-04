@@ -1,7 +1,7 @@
 @use "../core/mixins" as *;
 
-$header-bg: var(--c-gray-300);
-$header-h: 4rem;
+$header-bg: var(--c-bg);
+$header-h: 3rem;
 
 $header-banner-h: 2rem;
 $header-banner-bg: var(--c-main-200);
@@ -38,6 +38,7 @@ header {
         position: relative;
         background-color: $header-bg;
         height: $header-h;
+        border-bottom: 3px solid var(--c-alter-300);
     }
 
     /** LOGO ******************************************************************/
@@ -47,7 +48,7 @@ header {
         flex-wrap: nowrap;
         align-items: center;
         font-size: 0.8em;
-
+        color: var(--c-body);
         img {
             display: flex;
             height: $header-h * 0.3;
@@ -81,6 +82,7 @@ header {
     #bar nav {
         font-size: $nav-fs;
         padding: 0 1rem;
+        color: var(--c-body);
         
         // MOBILE SIZE #######
         @include media-down(md) {
@@ -167,8 +169,8 @@ header {
             cursor: pointer;
 
             @include media-up(md) {
-                font-size: 1.5rem;
-                padding: 0 1.5rem;
+                font-size: 1rem;
+                padding: 0 1rem;
             }
         }
     }
