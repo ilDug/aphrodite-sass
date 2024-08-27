@@ -2,15 +2,19 @@
 @use "colors" as c;
 @use "sass:color";
 
-@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Josefin+Sans:wght@300;400;700&family=Montserrat:ital,wght@0,100;0,400;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;700&family=Montserrat:ital,wght@0,100;0,400;0,700;1,400&display=swap");
 
 /// VARIABLES
 :root {
     --ff-body: "Montserrat", sans-serif;
-    --ff-main: "Montserrat", sans-serif;
-    --ff-alt: "Josefin Sans", sans-serif;
+    --ff-main: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans",
+        "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+        "Segoe UI Symbol", "Noto Color Emoji";
+    --ff-alt: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans",
+        "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+        "Segoe UI Symbol", "Noto Color Emoji";
     --ff-headings: "Josefin Sans", sans-serif;
-    --ff-mono: "Inconsolata", monospace;
+    --ff-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --f-size: 12px;
     --line-height: 1.8;
 }
