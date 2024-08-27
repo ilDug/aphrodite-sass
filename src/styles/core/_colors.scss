@@ -1,9 +1,11 @@
 @use "sass:color";
 @use "sass:map";
 
+$c-bg: hsl(270, 2%, 20%);
+
 :root {
     // colore di sfondo
-    --c-bg: var(--c-gray-100);
+    --c-bg: #{$c-bg};
 
     // colore del testo
     --c-body: var(--c-gray-600);
@@ -42,6 +44,17 @@ $shades: (
             --c-#{$tint}-#{$shade}: #{color.scale($color, $lightness: $light)};
         }
     }
+
+
+    --c-bg-1:#{color.scale($c-bg, $lightness: -12%)};
+    --c-bg-2:#{color.scale($c-bg, $lightness: -8%)};
+    --c-bg-3:#{color.scale($c-bg, $lightness: -4%)};
+    --c-bg-4:#{color.scale($c-bg, $lightness: -2%)};
+    --c-bg-5:#{color.scale($c-bg, $lightness: 0%)};
+    --c-bg-6:#{color.scale($c-bg, $lightness: 2%)};
+    --c-bg-7:#{color.scale($c-bg, $lightness: 4%)};
+    --c-bg-8:#{color.scale($c-bg, $lightness: 8%)};
+    --c-bg-9:#{color.scale($c-bg, $lightness: 12%)};
 }
 
 // FUNCTIONS

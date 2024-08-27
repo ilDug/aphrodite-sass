@@ -12,13 +12,13 @@ textarea {
 }
 
 .field {
-    --control-bg: rgba(243, 246, 252, 1);
+    --control-bg: var(--c-bg-4);
     --control-c: inherit;
-    --control-b-r: 1px;
-    --control-b-c: none;
+    --control-b-r: 3px;
+    --control-b-c: var(--c-main-700);
     --control-b-c-focus: var(--c-main-300);
-    --control-b-w: none;
-    --control-line-height: 2rem;
+    --control-b-w: 3px;
+    --control-line-height: 3rem;
     --control-fs: 0.8rem;
     --control-p: 0.3rem;
     --control-label-mb: 0.25rem;
@@ -54,13 +54,17 @@ textarea {
         background-color: var(--control-bg);
         border-radius: var(--control-b-r);
 
-        border-bottom: 1px solid var(--c-gray-200);
+        border-bottom: var(--control-b-w) solid var(--control-b-c);
 
         &:focus {
             // border-color: var(--control-b-c-focus);
             // border-width: 1px;
             // outline-color: var(--control-b-c-focus);
             outline: 0;
+        }
+
+        &.ng-invalid.ng-touched, &.invalid {
+            border-color: var(--c-error);
         }
     }
 

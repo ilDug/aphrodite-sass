@@ -3,3 +3,24 @@
 
 // FONTAWESOME
 // @import "https://kit.fontawesome.com/0000000000000.css";
+
+/********************************************/
+body,
+app-root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+// imposta la pagina a tutta altezza per ciò che viene rappresentato nel router outlet
+router-outlet + * {
+    flex: 1 0 auto;
+}
+
+/********************************************/
+// ildug/ngx-toast
+:root {
+    --toast-c: var(--c-body) !important;
+    --toast-bg: var(--c-bg-5) !important;
+    --toast-b: var(--c-bg-4) !important;
+}
