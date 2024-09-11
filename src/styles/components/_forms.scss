@@ -11,8 +11,8 @@ textarea {
     }
 }
 
-.field {
-    --control-bg: var(--c-bg-4);
+.field, .checkbox {
+    --control-bg: var(--c-bg-1);
     --control-c: inherit;
     --control-b-r: 3px;
     --control-b-c: var(--c-main-700);
@@ -22,6 +22,7 @@ textarea {
     --control-fs: 0.8rem;
     --control-p: 0.3rem;
     --control-label-mb: 0.25rem;
+    --control-checkbox-size: 1.5em;
 
     > *:not(input) {
         // padding: 0.5rem 0.5rem;
@@ -63,7 +64,8 @@ textarea {
             outline: 0;
         }
 
-        &.ng-invalid.ng-touched, &.invalid {
+        &.ng-invalid.ng-touched,
+        &.invalid {
             border-color: var(--c-error);
         }
     }
@@ -107,6 +109,66 @@ textarea {
     cursor: not-allowed;
     &::placeholder {
         color: var(--c-gray-400);
+    }
+}
+
+// checkbox
+.checkbox {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    font-size: var(--control-fs);
+    margin-bottom: 1rem;
+}
+.checkbox > input[type="checkbox"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    /* Remove most all native input styles */
+    appearance: none;
+    /* For iOS < 15 */
+    background-color: transparent;
+    /* Not removed via appearance */
+    margin: 0;
+
+    font: inherit;
+    color: var(--c-main);
+    width: var(--control-checkbox-size);
+    height: var(--control-checkbox-size);
+    border: 0.15em solid var(--c-gray);
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+
+    display: grid;
+    place-content: center;
+
+    &::before {
+        content: "";
+        width: calc(var(--control-checkbox-size) * 0.65);
+        height: calc(var(--control-checkbox-size) * 0.65);
+        clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+        transform: scale(0);
+        transform-origin: bottom left;
+        transition: 120ms transform ease-in-out;
+        box-shadow: inset 1em 1em var(--c-main);
+        /* Windows High Contrast Mode */
+        background-color: CanvasText;
+    }
+
+    &:checked::before {
+        transform: scale(1);
+    }
+
+    // &:focus {
+    //     outline: max(2px, 0.15em) solid var(--c-main);
+    //     outline-offset: max(2px, 0.15em);
+    // }
+
+    &:disabled {
+        color: var(--c-gray);
+        cursor: not-allowed;
     }
 }
 
